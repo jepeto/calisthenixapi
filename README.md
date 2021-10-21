@@ -1,3 +1,4 @@
 # calisthenixapi
 
 new version
+MINOR
