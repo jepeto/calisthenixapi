@@ -2,3 +2,5 @@
 
 new version
 MINOR
+
+check versioning & changelog
