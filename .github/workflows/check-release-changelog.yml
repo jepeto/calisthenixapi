@@ -22,3 +22,16 @@ jobs:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  generate-changelog:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: BobAnkh/auto-generate-changelog@master
+      with:
+        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PATH: 'CHANGELOG.md'
+        COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
+        TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
