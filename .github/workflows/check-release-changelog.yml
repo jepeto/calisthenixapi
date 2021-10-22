@@ -15,12 +15,12 @@ jobs:
           release_branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#       - name: Create Latest Tag file
-#         run: echo "## ${{ steps.tag_and_prepare_release.outputs.tag }}\n Latest" > Tags.log
+      - name: Create Latest Tag file
+        run: echo "## ${{ steps.tag_and_prepare_release.outputs.tag }}\n Latest" > ./Tags.log
       - name: Create Latest Tag file
         uses: finnp/create-file-action@1.0.0
         env:
-          FILE_NAME: "Tags.log"
+          FILE_NAME: "Tags1.log"
           FILE_DATA: "## ${{ steps.tag_and_prepare_release.outputs.tag }}\n Latest"
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
