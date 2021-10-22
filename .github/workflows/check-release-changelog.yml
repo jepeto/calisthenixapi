@@ -33,6 +33,7 @@ jobs:
         uses: Roang-zero1/github-create-release-action@master
         with:
           created_tag: ${{ steps.tag_and_prepare_release.outputs.tag }}
+          changelog_file: 'Tags.log'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   generate-changelog:
