@@ -1,8 +1,18 @@
 # CHANGELOG
 
-## Unreleased
+## [v0.11.1](https://github.com/jepeto/calisthenixapi/releases/tag/v0.11.1) - 2021-10-22 10:31:32
 
-Changes unreleased.
+Testing
+
+
+### Documentation
+
+- Tags:
+  - update tags ([eb6e197](https://github.com/jepeto/calisthenixapi/commit/eb6e1971205173e9f2b72d21702d7d44dc0d5059))
+
+## [v0.11.0](https://github.com/jepeto/calisthenixapi/releases/tag/v0.11.0) - 2021-10-22 09:16:41
+
+testinbg 1
 
 ### Documentation
 
