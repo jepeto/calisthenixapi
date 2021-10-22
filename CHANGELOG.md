@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v0.12.0](https://github.com/jepeto/calisthenixapi/releases/tag/v0.12.0) - 2021-10-22 11:27:13
+
+Release 21/10
+
 ## [v0.11.1](https://github.com/jepeto/calisthenixapi/releases/tag/v0.11.1) - 2021-10-22 10:31:32
 
 Testing
