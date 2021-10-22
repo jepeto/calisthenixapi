@@ -1,3 +1,3 @@
 # calisthenixapi
 
-gia na doume v40000
+gia na doume v40000.1
