@@ -15,19 +15,19 @@ jobs:
           release_branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Changelog Generator
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Create changelog
-          # Action location goes here. It's in root for this workflow. It may be different for your repo.
-        uses: jepeto/changelog-generator-action@master
-        with:
-          REPO_NAME: 'jepeto/calisthenixapi'
-          ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PATH: '/Tags.log'
-          COMMIT_MESSAGE: 'docs(Tags): update tags'
-          TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
+#       - name: Changelog Generator
+#         uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - name: Create changelog
+#           # Action location goes here. It's in root for this workflow. It may be different for your repo.
+#         uses: jepeto/changelog-generator-action@master
+#         with:
+#           REPO_NAME: 'jepeto/calisthenixapi'
+#           ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#           PATH: '/Tags.log'
+#           COMMIT_MESSAGE: 'docs(Tags): update tags'
+#           TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: Roang-zero1/github-create-release-action@master
@@ -36,16 +36,16 @@ jobs:
           changelog_file: 'Tags.log'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  generate-changelog:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: BobAnkh/auto-generate-changelog@master
-      with:
-        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PATH: 'CHANGELOG.md'
-        COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
-        TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
+#   generate-changelog:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#       with:
+#         fetch-depth: 0
+#     - uses: BobAnkh/auto-generate-changelog@master
+#       with:
+#         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         PATH: 'CHANGELOG.md'
+#         COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
+#         TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
