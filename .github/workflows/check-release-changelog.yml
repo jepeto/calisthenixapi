@@ -15,13 +15,19 @@ jobs:
           release_branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Latest Tag file
-        run: echo "## ${{ steps.tag_and_prepare_release.outputs.tag }}\n Latest" > ./Tags.log
-      - name: Create Latest Tag file
-        uses: finnp/create-file-action@1.0.0
-        env:
-          FILE_NAME: "Tags1.log"
-          FILE_DATA: "## ${{ steps.tag_and_prepare_release.outputs.tag }}\n Latest"
+      - name: Changelog Generator
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create changelog
+          # Action location goes here. It's in root for this workflow. It may be different for your repo.
+        uses: jepeto/changelog-generator-action@master
+        with:
+          REPO_NAME: 'jepeto/calisthenixapi'
+          ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PATH: '/Tags.log'
+          COMMIT_MESSAGE: 'docs(Tags): update tags'
+          TAG: ${{ steps.tag_and_prepare_release.outputs.tag }}
       - name: Upload release notes
         if: steps.tag_and_prepare_release.outputs.tag
         uses: Roang-zero1/github-create-release-action@master
